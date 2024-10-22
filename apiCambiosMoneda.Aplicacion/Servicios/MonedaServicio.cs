@@ -13,9 +13,9 @@ namespace apiCambiosMoneda.Aplicacion.Servicios
             this.repositorio = repositorio;
         }
 
-        public Task<IEnumerable<Moneda>> ObtenerTodos()
+        public async Task<IEnumerable<Moneda>> ObtenerTodos()
         {
-            throw new NotImplementedException();
+            return await repositorio.ObtenerTodos();
         }
 
         public Task<Moneda> Obtener(int Id)
