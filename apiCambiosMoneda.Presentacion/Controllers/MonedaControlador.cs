@@ -20,5 +20,11 @@ namespace apiCambiosMoneda.Presentacion.Controllers
         {
             return servicio.ObtenerHistorialCambios(idMoneda, desde, hasta);
         }
+
+        [HttpGet("cambios/actual/{idMoneda}")]
+        public Task<CambioMoneda> ObtenerCambioActual(int idMoneda)
+        {
+            return servicio.ObtenerCambioActual(idMoneda);
+        }
     }
 }

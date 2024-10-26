@@ -74,7 +74,7 @@ namespace apiCambiosMoneda.Aplicacion.Servicios
 
         public Task<CambioMoneda> ObtenerCambioActual(int idMoneda)
         {
-            throw new NotImplementedException();
+            return repositorio.ObtenerCambioActual(idMoneda);
         }
 
         public Task<IEnumerable<CambioMoneda>> ObtenerHistorialCambios(int idMoneda, DateTime desde, DateTime hasta)
