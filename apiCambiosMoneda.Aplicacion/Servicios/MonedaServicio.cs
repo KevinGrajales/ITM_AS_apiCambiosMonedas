@@ -79,7 +79,7 @@ namespace apiCambiosMoneda.Aplicacion.Servicios
 
         public Task<IEnumerable<CambioMoneda>> ObtenerHistorialCambios(int idMoneda, DateTime desde, DateTime hasta)
         {
-            throw new NotImplementedException();
+            return repositorio.ObtenerHistorialCambios(idMoneda, desde, hasta);
         }
 
         public Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)

@@ -1,5 +1,6 @@
 ﻿using apiCambiosMoneda.Aplicacion.Servicios;
 using apiCambiosMoneda.Core.Interfaces.Repositorios;
+using apiCambiosMoneda.Core.Interfaces.Servicios;
 using apiCambiosMoneda.Infraestructura.Repositorio.Contextos;
 using apiCambiosMoneda.Infraestructura.Repositorio.Repositorios;
 using apiCambiosPais.Core.Interfaces.Servicios;
@@ -20,10 +21,12 @@ namespace apiCambiosMoneda.Presentacion.InyeccionDependencias
 
             //Agregar los repositorios
             servicios.AddTransient<IPaisRepositorio, PaisRepositorio>();
+            servicios.AddTransient<IMonedaRepositorio, MonedaRepositorio>();
 
 
             //Agregar los servicios
             servicios.AddTransient<IPaisServicio, PaisServicio>();
+            servicios.AddTransient<IMonedaServicio, MonedaServicio>();
 
 
             servicios.AddSingleton<IConfiguration>(configuracion);

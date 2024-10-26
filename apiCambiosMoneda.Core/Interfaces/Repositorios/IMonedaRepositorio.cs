@@ -30,7 +30,11 @@ namespace apiCambiosMoneda.Core.Interfaces.Repositorios
 
         /********** CONSULTAS **********/
 
+        Task<IEnumerable<CambioMoneda>> ObtenerHistorialCambios(int idMoneda, DateTime desde, DateTime hasta);
 
+        Task<CambioMoneda> ObtenerCambioActual(int idMoneda);
+
+        Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda);
 
     }
 }

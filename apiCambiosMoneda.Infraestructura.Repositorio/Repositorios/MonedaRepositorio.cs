@@ -71,7 +71,7 @@ namespace apiCambiosMoneda.Infraestructura.Repositorio.Repositorios
         {
             return await context.CambiosMoneda
                                     .Where(cm => cm.IdMoneda == IdMoneda)
-                                     .Include(cm => cm.Moneda) // Incluye la Moneda relacionado con el Cambio
+                                    .Include(cm => cm.Moneda) // Incluye la Moneda relacionado con el Cambio
                                     .ToArrayAsync();
         }
 
@@ -112,7 +112,24 @@ namespace apiCambiosMoneda.Infraestructura.Repositorio.Repositorios
             return true;
         }
 
+        /********** CONSULTAS **********/
 
+        public async Task<IEnumerable<CambioMoneda>> ObtenerHistorialCambios(int idMoneda, DateTime desde, DateTime hasta)
+        {
+            return await context.CambiosMoneda
+                                    .Where(cm => cm.IdMoneda == idMoneda && cm.Fecha >= desde && cm.Fecha <= hasta)
+                                    .Include(cm => cm.Moneda) // Incluye la Moneda relacionado con el Cambio
+                                    .ToArrayAsync();
+        }
 
+        public Task<CambioMoneda> ObtenerCambioActual(int idMoneda)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
