@@ -84,7 +84,7 @@ namespace apiCambiosMoneda.Aplicacion.Servicios
 
         public Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)
         {
-            throw new NotImplementedException();
+            return repositorio.ObtenerPaisesPorMoneda(idMoneda);
         }
 
     }

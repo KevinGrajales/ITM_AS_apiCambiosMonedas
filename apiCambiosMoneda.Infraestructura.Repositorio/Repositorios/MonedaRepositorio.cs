@@ -130,9 +130,12 @@ namespace apiCambiosMoneda.Infraestructura.Repositorio.Repositorios
                                 .FirstOrDefaultAsync();
         }
 
-        public Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)
+        public async Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)
         {
-            throw new NotImplementedException();
+            return await context.Paises
+                                .Where(item => item.IdMoneda == idMoneda)
+                                .Include(item => item.Moneda)
+                                .ToListAsync();
         }
     }
 }

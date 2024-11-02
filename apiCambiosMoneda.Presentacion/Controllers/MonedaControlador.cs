@@ -26,5 +26,11 @@ namespace apiCambiosMoneda.Presentacion.Controllers
         {
             return servicio.ObtenerCambioActual(idMoneda);
         }
+
+        [HttpGet("{idMoneda}/paises")]
+        public Task<IEnumerable<Pais>> ObtenerPaisesPorMoneda(int idMoneda)
+        {
+            return servicio.ObtenerPaisesPorMoneda(idMoneda);
+        }
     }
 }
